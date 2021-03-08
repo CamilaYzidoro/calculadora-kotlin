@@ -1,0 +1,41 @@
+fun main() {
+    var a:Float? = 8.65f
+    var b:Float? = 4.35f
+    var op = (1..6).random()
+    var fatorial:Int = 1
+    
+    if(a != null && b != null){
+        println(op.getStudentStatus())
+        if(op == 1){
+            println("O resultado da soma entre $a e $b é: " + a.plus(b))
+        }else if(op == 2){
+            println("O resultado da subtração entre $a e $b é: " + a.minus(b))
+        }else if (op == 3){
+            println("O resultado da multiplicação entre $a e $b é: "+ a.times(b))
+        }else if ( op == 4){
+            println("O resultado da divisão entre $a e $b é: " + a.div(b))
+        }else if (op == 5) {
+			for(i in 1..a.toInt()){
+               fatorial = fatorial * i
+			}  
+        println("O fator de $a é: " + fatorial)
+        }
+        else{
+            println("O valor é inválido.")
+        }
+    }else{
+        println("Um dos valores é inválido.")
+    }
+}
+
+fun Int.getStudentStatus():String{
+    
+    return when(this){
+        1 -> "$this - soma"
+        2 -> "$this - subtração"
+        3 -> "$this - multiplicação"
+        4 -> "$this - divisão"
+        5 -> "$this - fatorial"
+        else -> "O valor é inválido."
+    }
+}
